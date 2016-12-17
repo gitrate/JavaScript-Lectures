@@ -181,12 +181,42 @@
 		// console.log("Default action");
 // }
 
+// var day = "Friday";
 
+// switch (day) {
+	// case "Friday":
+	// alert("Hooray! Friday!");
+	// break;
+	// case "Monday":
+	// alert( "Monday/ Work again :(" );
+	// break;
+	// default:
+	// alert("Better than Monday");
+// }
 
+// switch (day) {
+	// case "Friday":
+	// alert("Hooray! Friday!");
 
+	// case "Monday":
+	// alert( "Monday/ Work again :(" );
 
+	// default:
+	// alert("Better than Monday");
+// }
 
+var day = "Friday";
 
+switch (day) {
+	case typeof day == "string":
+	alert("Hooray! Friday!");
+
+	case typeof day == "number":
+	alert( "Monday/ Work again :(" );
+
+	default:
+	alert("Not a number and not a string");
+}
 
 
 
