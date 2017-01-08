@@ -125,19 +125,19 @@
 
 // console.log(isTruePrimitive("true"));
 
-function isTruePrimitive(x) {
-	return typeof(x) !== "object" && typeof(x) !== "function"  && !!x {
+// function isTruePrimitive(x) {
+	// return typeof(x) !== "object" && typeof(x) !== "function"  && !!x {
 
-console.log(isTruePrimitive(""));
-console.log(isTruePrimitive("tue"));
-console.log(isTruePrimitive({}));
-console.log(isTruePrimitive([]));
-console.log(isTruePrimitive(function()));
-console.log(isTruePrimitive(25));
-console.log(isTruePrimitive(0));
-console.log(isTruePrimitive(null));
-console.log(isTruePrimitive(undefined));
-console.log(isTruePrimitive(NaN));
+// console.log(isTruePrimitive(""));
+// console.log(isTruePrimitive("tue"));
+// console.log(isTruePrimitive({}));
+// console.log(isTruePrimitive([]));
+// console.log(isTruePrimitive(function()));
+// console.log(isTruePrimitive(25));
+// console.log(isTruePrimitive(0));
+// console.log(isTruePrimitive(null));
+// console.log(isTruePrimitive(undefined));
+// console.log(isTruePrimitive(NaN));
 
 // ************************************************
 
@@ -151,16 +151,16 @@ console.log(isTruePrimitive(NaN));
 
 // + (sqr((x3-x4)*(x3-x4) + (y3-y4)*(y3-y4)))*(sqr((x3-x4)*(x3-x4) + (y3-y4)*(y3-y4)))
 
-function getLenthOfHyp(x1, x2, x3, x4, y1, y2, y3, y4) {
-	return (Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)))*(Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2))) + 
+// function getLenthOfHyp(x1, x2, x3, x4, y1, y2, y3, y4) {
+	// return (Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2)))*(Math.sqrt((x1-x2)*(x1-x2) + (y1-y2)*(y1-y2))) + 
 
-+ (Math.sqrt((x3-x4)*(x3-x4) + (y3-y4)*(y3-y4)))*(Math.sqrt((x3-x4)*(x3-x4) + (y3-y4)*(y3-y4)));
-}
+// + (Math.sqrt((x3-x4)*(x3-x4) + (y3-y4)*(y3-y4)))*(Math.sqrt((x3-x4)*(x3-x4) + (y3-y4)*(y3-y4)));
+// }
 
-// две точки должны быть с равными координатами: x1,x4 = 0, y1,y4 = 0; x2 = 5, y2 = 0; x3 = 0, y3 = 3.
+// // две точки должны быть с равными координатами: x1,x4 = 0, y1,y4 = 0; x2 = 5, y2 = 0; x3 = 0, y3 = 3.
 
-console.log(getLenthOfHyp(0,5,0,0,0,0,3,0));
-console.log(getLenthOfHyp());
+// console.log(getLenthOfHyp(0,5,0,0,0,0,3,0));
+// console.log(getLenthOfHyp());
 
 // Math.pow - возведение в квадрат
 
