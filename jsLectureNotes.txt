@@ -1,0 +1,676 @@
+/* LECTURE_01 - типы данных */
+// **********************************
+
+/* горячие клавиши Notepade++
+
+левая кнопка мыши (ЛКМ) - перетаскивает выделенный код
+Ctrl + ЛКМ - копирует выделенный код
+Alt + ЛКМ - прямоугольное выделение текста
+Ctrl + Shift + Up/Down - перемещать строку вверх/вниз
+Ctrl+BackSpace - удалить все слово (влево)
+Ctrl+Delete - удалить все слово (вправо)
+Ctrl+Shift+BackSpace - удалить с начала строки
+Ctrl+Shift+Delete удалить до конца строки
+Ctrl+U - конвертация букв в прописные буквы
+Ctrl+Shift+U - конвертация букв в ЗАГЛАВНЫЕ БУКВЫ
+Ctrl+B - перейти к скобке (только сначала выделите любую скобку)
+
+Ctrl + D - дублировать строку или выделение
+
+(в Notepade++ должен быть включен язык JavaScript)
+Ctrl + /Shift/ + K - однострочный комментарий поставить/убрать
+Ctrl + /Shift/ + Q - многострочный комментарий поставить/убрать
+
+Автозавершение
+	функций - Ctrl + пробел
+	параметр функции - Ctrl + Shift + пробел
+	слова - Ctrl + Enter
+	путь - Ctrl + Alt + пробел
+
+	View > Always on Top - иногда удобно работать с браузером
+	F11 - убрать/вернуть меню
+	F12 - убрать/вернуть во весь экран
+	Ctrl + Num +/Num- - text zoom
+	Ctrl + Alt + /Shift + F - свернуть/развернуть текущий блок
+ */
+/* Способы подключения скриптов:
+1. в head
+2. в конце файла (чтобы не задерживать загрузку страницы)
+3. подключение скрипта
+Атрибуты подключения defer и async - 
+defer - скрипты срабатывают и выполняются последовательно
+async - скрипты срабатывают и выполняются по мере загрузки
+оба атрибута не стопорят работу html-кода на странице
+
+верблюжьяНотация
+переменные и функции - lowerCamelCase
+классы - UpperCamelCase
+константы - SCREAMING_SNAKE_CASE - змеиный регистр
+желательно каждую логическую операцию заканчивать ";"
+
+комментарий используют для отладки
+//однострочный комментарий
+/* многострочный комментарий */
+/* макросы
+сниппеты
+*/
+/* отладка при помощи
+
+всплывающего окна
+alert("Hello World"); (недостаток - прерывает выполнение кода html-страницы, не умеет выводить объекты (только примитивы))
+
+вывода в консоль console.log("Hello World"); (открывается по нажатию F12)
+набирать и выполнять код можно прямо в консоли
+
+меток, которые выставляются в окне Sources (рядом с консолью (Console)) и останавливают выполнение кода в этом месте
+
+debugger;
+*/
+/* use strict
+директива
+"use strict"; (к примеру, запрещает объявлять переменные без var)
+прописывают в начале файла/в теле функции
+*/
+/* символы для именования переменных
+azAZ09$_
+var - локальное объявление переменной
+*/
+/* типы данных:
+примитивы (5 штук):
+number, string, boolean, null, undefined
+объекты:
+объект, массив, функция
+*/
+ /* typeof
+ оператор typeof передаёт тип переданных данных
+ var x = 12;
+ console.log(typeof x);
+ */
+/* объект
+var x = {
+	key1: "value1";
+	key2: "value2";
+	"key3": "value3"; (компрессор сжимает ключи, но всё, что в кавычках, считает строками и не трогает. Таким образом, кавычками можно запретить менять имя ключа, если это нарушает работу программы)
+}
+console.log(typeof x); // "object"
+обращение к элементам объекта либо через точку:
+x.key1 = "new value";
+либо через квадратные скобки:
+x["key2"] = "new value 2";
+*/
+ /* массив
+ var x = ["element1", "element2", 25, {}, [], null];
+ console.log(typeof x); // "object"
+ Array.isArray(x); // true
+ обращение к элементам массива только через квадратные скобки с числом (номером элемента):
+ console.log(x[3]); // 25
+ x[3] = 56;
+ console.log(x[3]); // 56
+ добавление свойства объекта:
+ x.test = 123;
+ console.log(x.test); // 123
+ длина массива при добавлении свойства не меняется 
+  */
+/* функция
+var x = function () {};
+console.log(typeof x); // "function" (исключение, typeof выдаёт не тип "объект", но тип "функция")
+
+плохая практика - добавление функции свойств объекта:
+x.key1 = "test";
+console.log(x.key1); // "test"
+*/
+/* ссылочный тип
+var x = ["123"];
+console.log(x); // ["123"]
+var y = x;
+console.log(y); // ["123"]
+меняем y:
+y[0] = 345;
+проверяем изменения в y:
+console.log(y); // [345]
+проверяем изменения в x:
+console.log(x); // [345]
+Объекты ссылаются на одно и то же место в памяти, соответственно, любой объект - ссылка на место в памяти.
+*/ 
+ 
+/* LECTURE_02 - операторы */
+// **********************************
+
+/* операнд
+ - то, к чему применяется оператор (число, строка, ..?)
+ операторы имеют приоритеты выполнения
+*/
+/* унарные операторы
++ унарный плюс (если поставить перед переменной со строкой, меняет на выводе тип со строки на число, но не меняет саму переменную)
+var x = "-5";
+console.log(+x); // -5
+console.log(x); // "-5"
+
+- унарный минус (если поставить перед переменной со строкой, меняет на выводе тип со строки на число и меняет его знак, но не меняет саму переменную)
+var x = "-5";
+console.log(-x); // 5
+console.log(x); // "-5"
+
+Чтобы изменить саму переменную, присваиваем ей +x:
+x = +x;
+console.log("typeof x =", typeof x); // number
+*/
+/* операторы сравнения
+за исключением некоторых случаев, стараются привести всё к числу, поскольку числа легко сравнить
+
+операторы сравнения всегда возвращают булево значение
+console.log(null == undefined); // true
+console.log(null == undefined); // false
+
+*** сравнение строк
+сравнение идёт по коду символа посимвольно (первый символ с первым, второй со вторым, сравнение идёт до тех пор, пока не найдётся один символ, который больше/меньше другого):
+console.log(x > y); // false (кто позже по алфавиту, тот и больше по коду символа)
+console.log(x > Y); // true (код строчных символов больше кода ЗАГЛАВНЫХ, маленькие буквы больше больших)
+console.log("tesa" > "tes"); // true, при равных частях, у левой части на один символ больше, значит, левая часть больше
+console.log("1" > "2"); // false
+console.log("12" > "2"); // false (1 < 2, дальше сравнение останавливается)
+console.log(+"12" > +"2"); // true, унарный плюс приводит строку к числу
+
+*** сравнение разных типов
+console.log("2" > 1); true
+console.log("1.0" == 1); true
+console.log(true == 1); true (true приводится к 1, false приводится к 0)
+console.log(false == ""); true
+console.log(false == 0); true
+*** сравнение null и undefined
+null и undefined равны только друг другу
+console.log(null == undefined); true
+console.log(null > 0); false
+console.log(null == 0); false
+console.log(null >=0); true
+console.log(null <=0); true
+*/
+/* логические операторы
+логические операторы && и || не преобразуют возвращаемое значение к булевому виду. Из операторов можно строить цепочки.
+
+&& - логическое и - останавливается на первом (левом или правом) ложном значении и возвращает его. Если в левой части true, то оно в любом случае возвращает правую часть оператора
+ 
+
+|| - логическое или - останавливается на первом (левом или правом) истинном значении и возвращает его. Если в левой части false, то оно в любом случае возвращает правую часть оператора
+
+! - логическое не - преобразует возвращаемое значение к булевому виду:
+console.log(!4); // false
+!! - двойное логическое "не" используется для приведения значения к булевому виду:
+console.log(!!4); // true
+
+0, "", false, null, undefined, NaN, ![], !{}, !function()== false;
+!0, "some text", !false, !null, !undefined, !NaN, [], {}, function() == true;
+5, -5, "asd" - дают true
+*/
+/* бинарные операторы
++
+-
+*
+/
+% - деление по модулю
+*/
+/* запятая, скобки, NaN
+запятая имеет самый низкий приоритет (0)
+var x = 10, y = 5, z = x + y; // 10 5 15
+присвоение идёт слева направо
+var z = x + y, x = 10, y = 5; // 10 5 NaN
+
+Когда JS не может выполнить математическую операцию, он возвращает "не число" - "Not a Number" - "NaN"
+NaN не равно ничему, даже самому себе.
+if(NaN != NaN) {console.log("NaN != NaN");} // "NaN != NaN"
+console.log(typeof NaN); // number
+
+скобки имеют самый высокий приоритет (19)
+var x = 5,6; // Uncaught SyntaxError: Unexpected number
+var x = (5,6); // 6
+*/ 
+/* экранирование
+обратный слэш экранирует символы в строке:
+console.log('\" \! \\ \' ');
+использование разных кавычек:
+console.log('rest "test" qwest'); // rest "test" qwest
+*/
+/* побитовые операторы
+практически не рассматривали
+~ - побитовое "не" (тильда)
+ */
+/* операторы инкремента и декремента
+в отличие от унарных, действительно меняют переменную и работают только с переменными (которые содержат числа)
+префиксная форма и постфиксная
+var x = 4;
+console.log(++x); // 5
+console.log(x); // 5
+
+var y = 6;
+console.log(y++); // 6
+console.log(y); // 7
+*/
+/* условный оператор if, if else
+	использует нестрогое сравнение, типы могут приводиться
+	оператор не возвращает никакого значения
+	if(true) {
+		console.log("action");
+	}
+Форма записи без фигурных скобок - действие записывается только в одну строку:
+	if(true)
+		console.log("action"); // нечитабельно, не рекомендуется записывать без фигурных скобок
+*** if else
+	Если if выполняется, else пропускается.
+	else  выполняется всегда, если не віполняется if
+*** if() {}
+	else if() {}
+	else if() {}
+	else if() {}
+	else {}
+*/
+/* тернарный оператор
+использует нестрогое сравнение, типы могут приводиться,
+похож на if else, но в отличие от if обязательно возвращает значение
+Если условие выполняется - возвращает "then" ("test"),
+иначе возвращает "else" ("rest") */
+// var x = /* if */ 10 > 5 ? /* then */ "test" : /* else */ "rest";
+/* switch case
+при сравнении использует строгое сравнение (===)
+var x = "text";
+switch (x) {
+	case "text":
+		console.log("Action 1");
+		break;
+	case "lost":
+		console.log("Action 2");
+		break;
+	case true:
+		console.log("Action 3");
+	default:
+		console.log("default action");
+}
+
+Использовать default не обязательно.
+case's могут иметь общее действие:
+
+var x = "text";
+switch (x) {
+	case "text":
+		console.log("Action 1");
+		break;
+	case "lost":
+	case true:
+		console.log("Action 3");
+	default:
+		console.log("default action");
+}
+
+в case'ах могут стоять условия:
+var dataType = null;
+switch (true) {
+	case typeof dataType == "string":
+		console.log("Action 1");
+		break;
+	case typeof dataType == "number":
+		console.log("Action 2");
+	default:
+		console.log("default action");
+}
+*/
+
+/* LECTURE_03 - циклы */
+// **********************************
+
+/* while
+*/
+/* do while
+*/
+/* for
+    for(var i = 0; i < 10; i++) {
+		console.log(i);
+	}
+	или
+	i = 10;
+	for (;i > 5;) {
+		i--;
+		console.log(i);
+	}
+*/
+/* директивы break и continue
+	Для прерывания цикла используют директивы break (останавливает цикл полностью) и continue (переходит на следующий шаг) - это работает для всех циклов.
+	var i = 0;
+	while (true) {
+		console.log(i);
+		i++;
+		if(i > 10) {
+			break;
+		}
+	}
+	
+	var i = 0;
+	do {
+		console.log(i);
+		i++;
+		if(i > 10) {
+			break;
+		}
+	} while (i < 100);
+	
+	for(var i = 0; i < 100; i++) {
+		console.log(i);
+		if(i > 10) {
+			break;
+		}
+	}
+	var i = o;
+	while(i < 10) {
+		i++;
+		if (i > 5 && i < 8) {
+			continue;
+		}
+		console.log(i);
+	}
+	
+	do {
+		i++;
+		if (i > 5 && i < 8) {
+			continue;
+		}
+		console.log(i);
+	} while (i < 10);
+	
+	for(var i = 0; i < 10; i++) {
+		if(i > 5 && i < 8) {
+			continue;
+		}
+		console.log(i);
+	}
+Директивы break и continue нельзя использовать в тернарном операторе, т.к. он обязательно что-то возвращает, а директивы прерывают работу оператора - будет ошибка.
+*/
+/* Прерывание цикла по ключу.
+Из дочерних циклов можно прерывать родительский (сам цикл (не родительский) тоже прервётся).
+var i = 0;
+outerFor: while (true) {
+	console.log("outer i=", i);
+	while (true) {
+		i++;
+		console.log("inner i =", i);
+		if(i > 10) {
+			break outerFor;
+		}
+	}
+}
+
+var i = 0;
+outerFor: while (true) {
+	console.log("outer i=", i);
+	while (true) {
+		i++;
+		console.log("inner i =", i);
+		if(i > 10) {
+			break outerFor;
+		}
+	}
+}
+
+var i = 0;
+outerFor: while (true) {
+	console.log("outer i=", i);
+	while (true) {
+		i++;
+		console.log("inner i =", i);
+		if(i > 10) {
+			break outerFor;
+		}
+	}
+}
+
+var i = 0;
+outerFor: do {
+	console.log("outer i=", i);
+	do {
+		i++;
+		console.log("inner i =", i);
+		if(i > 10) {
+			break outerFor;
+		}
+	} while (true);
+} while (true);
+
+outerFor: for(var i = 9; ;) {
+	console.log("outer i =", i);
+	for(;;) {
+		i++;
+		console.log("inner i =", i);
+		if (i > 10) {
+			break outerFor;
+		}
+	}
+}
+
+outer: for(var i = 0; i < 100 ;) {
+	console.log("outer i =", i);
+	for(;;) {
+		i++;
+		console.log("inner i =", i);
+		if (i > 10) {
+			continue outer;
+		}
+	}
+}
+
+var i = 0;
+outer: while(i < 30) {
+	console.log("outer i =", i);
+	while (true) {
+		console.log("inner i =", i);
+		i++;
+		if (i > 10) {
+			continue outer;
+		}
+	}
+}
+
+var i = 0;
+outer: do {
+	console.log("outer i =", i);
+	do {
+		console.log("inner i =", i);
+		i++;
+		if (i > 10) {
+			continue outer;
+		}
+	} while (true);
+} while(i < 30);
+*/
+/* for in, перебор свойств объекта
+Цикл for in работает точно так же, но используется для перебора свойств объекта.
+
+var object = {
+	key1: "value 1",
+	key2: "value 2",
+	key3: "value 3",
+	anyKeyName: "any data",
+	isObject: {
+		test: "test"
+	},
+	isArray: [1, 2, null]
+}
+Есть два способа обратиться к свойству объекта.
+Через точку:
+console.log(object.key1); // в key1 не может быть переменной
+Или через квадратные скобки и ключ в виде строки:
+console.log(object["key2"]); // в key2 может быть переменная
+Именно это свойство (обращение через квадратные скобки) и используется в цикле for in:
+
+for (var key in object) {
+	console.log(key);
+	console.log(object[key]);
+}
+Цикл не перебирает дочерние объекты или массивы - только то, что мы непостедственно передали в условии.
+*/
+/* for in, перебор свойств массива (не рекомендуется)
+не рекомендуется перебирать свойства массива циклом for in, потому что, если у массива было какое-то свойство, то оно переберётся тоже:
+
+var array = [1, 2, 4, "string", null];
+// свойство:
+// array.someKey = "some value"; // dicrease speed of work with array
+
+for(var index in array) {
+	console.log(index);
+	console.log(array[index]);
+}
+
+*/
+/* массивы
+// arrays definition
+var arr = [];
+var arr = [1, "string", null];
+var arr = new Array(); // []; (метод new конструктора Array)
+var arr = new Array(1, "string", null); //[1, "string", null]
+var arr = new Array(2); // [undefined, undefined];
+
+console.log(arr.length);
+console.log(arr[0]);
+console.log(arr);
+*/
+/* недостаток работы с консолью
+var arr = new Array(2); // [undefined, undefined];
+
+console.log(arr.length);
+console.log(arr[0]);
+console.log(arr);
+
+arr[0] = "test";
+console.log(arr[0]);
+arr[0] = "rest";
+// arr[0] уже присвоено "rest", но консоль показывает console.log(arr[0]) - test, хотя, если раскрыть массив, то внутри будет верное значение. Чтобы не ошибаться, надо выводить в консоли свойства на уровне примитивов (а не объектов) или дебажить с брейкпоинтом.
+*/
+/* обращение к элементам массива
+совершается по индексу:
+array[1];
+*/
+/* array.lenth
+есть у каждого массива, оно возвращает длину массива:
+array.length;
+
+с помощью array.length можно быстро очистить массив:
+var array = [1, 2, "test"];
+array.length = 0;
+console.log(array); // пустой массив
+
+так же, с помощью array.length можно быстро увеличить массив:
+var array = [1, 2, "test"];
+array.length = 10;
+console.log(array); // массив на 10 элементов [1, 2, "test", undefined * 7]
+*/
+/* array.push
+для добавления элемента в конец массива используется метод push, который возвращает новую длину массива?????????????или индекс??????????
+
+var arr = [1, 2, 3];
+console.log(arr.length); // 3
+console.log(arr.push(10)); // 4
+console.log(arr.length); // 4
+
+arr.push("test") > 4 && console.log("We have a big array!");
+// или
+var newLength = arr.push("rest");
+console.log(newLength);
+*/
+/* Array.isArray
+проверяет, что элемент является именно массивом, возвращает true или false
+var arr = [1, 2, 3];
+console.log(Array.isArray(arr));
+*/
+
+/* LECTURE_04 - функции */
+// **********************************
+
+/* Функция
+всегда возвращает какое-то значение (либо то, что прописано в return, либо undefined)
+Если функция является свойством какого-либо объекта, лна называется метод.
+
+// It's function // functional declaration
+function fn () {}
+
+var object = {}; 
+
+// It's method
+object.method = function () {};
+
+// It's functional expression
+var functionX = function () {};
+
+// Именованное функциональное выражение
+var functionX = function fnName() {};
+// рекурсия
+var functionX = function fnName() {
+	if(true) {
+		fnName();
+	}
+};
+// объявление функции через конструктор new Function:
+var newFnName = new Function("x", "return x");
+console.log(newFnName(256));
+*/
+/* анонимная самовызывающаяся функция (будет сразу вызвана)
+(function() {
+	console.log("test 1");
+}) ();
+
+(function() {
+	console.log("test 1");
+}());
+*/
+/* именованная самовызывающаяся функция
+
+(function privatName(x) { //(x)==(var x = x)
+	console.log(x);
+	if (x < 1) {
+		privatName(x + 1); // рекурсия
+	}
+}) (0);
+
+(functionprivatName() {
+	console.log(x);
+	if (x < 1) {
+		privatName(x + 1); // рекурсия
+}(0));
+
+var test = (function privatName(x) {
+	if (x < 10) {
+		return privatName(x + 1);
+	}
+	return x;
+}) (0);
+console.log(test);
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LECTURE_05 */
+/* LECTURE_06 */
+/* LECTURE_07 */
+/* LECTURE_08 */
