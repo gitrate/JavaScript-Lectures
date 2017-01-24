@@ -60,10 +60,10 @@
 	// console.log(keys[i], obj[keys[i]]);
 // }
 
-var object = {
-	"key1": 10,
-	"key2": 15
-}
+// var object = {
+	// "key1": 10,
+	// "key2": 15
+// }
 
 // Object.defineProperty(object, "key1", {
 	// writable: false
@@ -106,10 +106,10 @@ var object = {
 
 // console.log(object.test);
 
-var object = {
-	firstName: "Test",
-	lastName: "Test2"
-}
+// var object = {
+	// firstName: "Test",
+	// lastName: "Test2"
+// }
 
 // Object.defineProperty(object, "fullName", {
 	
@@ -163,8 +163,9 @@ var object = {
 // console.log("Unshift 256",array.unshift(256)); // 3
 // console.log(array); // [256,0,1]
 
-// console.log("Shift", array.shift(256)); // 256
-// console.log(array); // [0,1]
+var array = [256,0,1];
+console.log("Shift", array.shift(256)); // 256
+console.log(array); // [0,1]
 // ???????????????????????????????????????
 
 // var array = [0,1,2,3];
@@ -307,20 +308,20 @@ var object = {
 // });
 // console.log( summOfNumbers);
 
-var users = [{
-	user1: "name",
-},{
-	user2: "name 2",
-},{
-	user3: "name 3",
-}];
+// var users = [{
+	// user1: "name",
+// },{
+	// user2: "name 2",
+// },{
+	// user3: "name 3",
+// }];
 
-var objectWithNames = users.reduce(function (startValue, element, index, array) {
-	startValue["user"+(index + 1)] = element["user"+(index + 1)];
-	return startValue;
+// var objectWithNames = users.reduce(function (startValue, element, index, array) {
+	// startValue["user"+(index + 1)] = element["user"+(index + 1)];
+	// return startValue;
 
-}, {});
-console.log(objectWithNames);
+// }, {});
+// console.log(objectWithNames);
 
 
 
