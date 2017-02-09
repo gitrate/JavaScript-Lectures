@@ -1,6 +1,9 @@
 // Возврат функции http://learn.javascript.ru/closures
 // Выразительный JavaScript: Функции https://habrahabr.ru/post/240349/
+// Замыкания в JavaScript https://habrahabr.ru/post/38642/
 
+http://dklab.ru/chicken/nablas/39.html
+https://habrahabr.ru/post/144646/
 
 
 
