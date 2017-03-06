@@ -2411,7 +2411,8 @@ console.log(checkEveryLineMatch("test\ntest\na\\n||", /\w+/m));
 /* LECTURE_12 - ООП в JS */
 // **********************************
 
-
+/* LECTURE_13 - JQUERY */
+// **********************************
 
 
 
