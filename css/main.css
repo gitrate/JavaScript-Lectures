@@ -2,8 +2,11 @@
 	text-align:center;
 }
 .mainTitle .logo {
-	width:100px;
-	vertical-align:middle;
+	border: 5px solid black;
+	margin: 8px;
+	padding: 10px;
+	width: 100px;
+	vertical-align: middle;
 }
 .mainTitle .text {
 	vertical-align:middle;

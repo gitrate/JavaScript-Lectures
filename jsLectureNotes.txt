@@ -2414,12 +2414,42 @@ console.log(checkEveryLineMatch("test\ntest\na\\n||", /\w+/m));
 /* LECTURE_13 - JQUERY */
 // **********************************
 
+// примеры в main.js
+
+
 /* LECTURE_14 - JQUERY */
 // **********************************
 
+// Document Object Model, DOM - это представление документа в виде дерева тегов. Это дерево образуется за счет вложенной структуры тегов плюс текстовые фрагменты страницы, каждый из которых образует отдельный узел. DOM — это инструмент, с помощью которого JavaScript видит содержимое HTML-страницы и состояние браузера. Самый внешний тег - <html>, поэтому дерево начинает расти от него. Внутри <html> находятся два узла: <head> и <body> - они становятся дочерними узлами для <html>. Каждый DOM-элемент является объектом и предоставляет свойства для манипуляции своим содержимым, для доступа к родителям и потомкам. У DOM-элементов есть масса свойств. Обычно используется максимум треть из них. Некоторые из них можно читать и устанавливать, другие - только читать. Атрибут есть у элементов-тегов и содержит имя тега в верхнем регистре, только для чтения.
+
+Веб-страница - это документ. Этот документ может отображаться либо в окне браузера, либо как код HTML. Но в обоих случаях это один и тот же документ. Объектная модель документа (DOM) предоставляет ещё один способ представления, хранения и обработки того же документа. DOM - это объектно-ориентированное представление веб-страницы, и его можно модифицировать с помощью языка сценариев, такого как JavaScript.
+
+// манипуляции атрибутами
+
+var dataElem = $("[data-test]");
+// console.log(dataElem.data("test"));
+// console.log(dataElem.data("test2"));
+// dataElem.data("test", "new value");
+// console.log(dataElem.data("test"));
+// dataElem.data({
+	// "test": "new value test",
+	// "test2": "new value test 2"
+// });
+// console.log(dataElem.data("test"));
+// console.log(dataElem.data("test2"));
+// dataElem.data("test2", {isValid: true});
+// console.log(dataElem.data("test2"));
+// dataElem.removeData("test2");
+// console.log(dataElem.data("test2"));
+
+// dataElem.removeAttr("data-test");
+// dataElem.removeAttr("data-test2");
+// dataElem.removeData(["data-test", "data-test2"]);
+// console.log(dataElem.data("test"));
+// console.log(dataElem.data("test2"));
 
 
-
+// манипуляция стилями
 
 
 
