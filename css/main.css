@@ -1,10 +1,46 @@
 .mainTitle {
 	text-align:center;
+	/* position:relative; */
+	/* top:100px; */
+	/* min-width: 120%; */
 }
 .mainTitle .logo {
-	width:100px;
-	vertical-align:middle;
+	border: 5px solid black;
+	margin: 8px;
+	padding: 10px;
+	width: 100px;
+	vertical-align: middle;
 }
 .mainTitle .text {
 	vertical-align:middle;
 }
+
+.formContainer {
+	width: 300px;
+	margin: 0 auto;
+}
+
+.formContainer div {
+	padding: 5px 0;
+}
+
+.formContainer label, .formContainer input {
+	transition: all 05s ease-in-out;
+}
+
+.formContainer .invalid label {
+	color: red;
+}
+
+.formContainer .invalid input[type='text'] {
+	border-color: red;
+}
+
+
+
+
+
+
+
+
+
