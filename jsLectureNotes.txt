@@ -2614,8 +2614,152 @@ var logoImage = $(".logo");
 
 
 
+/* LECTURE_16 - JQUERY */
+// **********************************
+// $(window).on("resize", function (e) {
+	// console.log(e, window.innerWidth);
+// } )
+
+// $(window).on("scroll", function (e) {
+	// console.log($(window).scrollTop());
+// })
+
+// $(document).ready(function () {}); // not recommended
+// $(document).on("ready", function () {}); // not recommended
+// $(function () {
+	// $("h1").hide();
+// })
+
+// // код клавиш клавиатуры 
+// $(document).on("keydown", function (e){
+	// console.log(e.keyCode);
+// })
+
+// // keyup, код клавиш клавиатуры срабатывает на отжатие всегда один раз
+// $(":text:eq(0)").on("keyup", function (e) {
+	// console.log("input " + e.keyCode);
+// })
+
+// // отслеживаем клик мышкой. При клике мышкой на кнопку submit, submit отправляет данные и перезагружает страницу, поэтому консоль очищается
+// $("button").on("click", function (e){
+	// console.log(e.clientX, e.clientY);
+// })
+// // чтобы консоль не очищалась, в консоли можно зачекать Preserve log чекбокс
+// $("button").on("click", function (e){
+	// e.preventDefault();
+	// console.log(e.clientX, e.clientY);
+// })
+// // e.preventDefault() метод event'а, он отменяет стандартное поведение, поэтому submit ничего не отправляет, консоль не перезагружается
+
+// // отслеживаем контекстное меню, вызванное на элементе
+// $("img").on("contextmenu", function (e){
+	// e.preventDefault();
+	// console.log(e.clientX, e.clientY);
+// })
+
+// // событие, которое срабатывает при двойном клике на элемент
+// $("h1, img").on("dblclick", function (e){
+	// console.log(e.target);
+// });
+// //на "img" dblclick срабатывает дважды, потому что мы повесили обработчик событий на два элемента - img и h1, но когда событие отлавливается и на родительском элементе h1, то в консоли всё равно пишет событие на img - контекст, сцуко, сохраняется
+
+// // кликом считается mousedown и mouseup были на одном и том же элементе, если mousedown произойдёт на одном элементе, а mouseup на другом, клик не отловится
+
+// $("button").on("mousedown", null, "It's mousedown event",
+// function (e) {
+	// console.log(e.data);
+// }).on("mousemove", null, "It's mousemove event", function (e) {
+	// console.log(e.data);
+// }).on("mouseup", null, "It's mouseup event", function (e) {
+	// console.log(e.data);
+// })
+// срабатывает на обеих клавишах мыши
+
+// при зажати кнопки мыши, консоль видит
+// It's mousedown event
+// It's mousemove event
+
+// при отпускани кнопки мыши, консоль видит
+// It's mousedown event
+// It's mousemove event
+
+// при перемещении курсора (как с зажатой, так и с отпущенной кнопкой мыши) над кнопкой, консоль видит
+// It's mousemove event
+
+// В $() второй и третий параметры не обязательны, второй параметр - селектор, третий - передаваемые данные. Без null, jQuery() принимает строку "It's mousedown event" за селектор, а не за передаваемые данные и не работает.
+
+// $("button").on("mousedown", null, "It's mousedown event",
+// function (e) {
+	// console.log(e.data);
+// }).on("mousemove", null, "It's mousemove event", function (e) {
+	// console.log(e.data);
+// }).on("mouseup", null, "It's mouseup event", function (e) {
+	// console.log(e.data);
+// }).on("click", false);
+
+// .on("click", false) - кнопка теперь не пытается сабмитить элементы, что видно по адресной строке, в которой не появляется ...?email=&phone=
+
+// focus == focusin, focusout == blur - теги придуманы в разное время и оставлены все варианты для совместимости, чаще используют focus и blur, как самые короткие. Событие focus срабатывает, когда элемент получает фокус, событие blur срабатывает, когда элемент теряет фокус.
+
+// $("input").on("focus", function (e){
+	// console.log("focus", e.target);
+// }).on("blur",  function (e){
+	// console.log("blur", e.target);
+// })
+ // в index.html заменили строку
+// <button type="submit">Submit</button>
+// на строку
+// <input type="button" value="Submit" />,
+// потому что не срабатывал focus на кнопке, когда она была button,
+// но стал срабатывать, когда кнопка стала input
+
+// $("input").on("change", function (e){
+	// console.log(e.target.value); // получаем атрибут value без использования обёртки jQuery, этот способ работает во всех браузерах
+// })
+// событие change срабатывает на радиокнопках, чекбоксах, а так же при потере фокуса в форме ввода текста:
+
+// $("input").on("change", function (e){
+	// console.log(e.target.value);
+// }).on("select", function () {
+	// console.log("selected")
+// });
+
+// если мы хотим вернуть выделенный фрагмент, изменим код:
+
+// $("input").on("change", function (e){
+	// console.log(e.target.value);
+// }).on("select", function (e) {
+	// console.log(e.target.value.slice(
+		// e.target.selectionStart,
+		// e.target.selectionEnd
+	// ));
+// });
+
+// запрещаем пользователю ПОЧТИ любые действия мышкой, радиокнопки и чекбоксы помечаются и, как минимум, on("change") срабатывает
+// $(document).on("mousedown", false);
+
+// для запрета копирования можно поэкспериментировать с запретом горячих клавиш, контекстного меню и консоли (для windows desktop должно сработать, если только не переопределялись горячие клавиши)
+// а вообще, нужно поискать событие, при котором информация попадает в буфер, и отменить это событие - так сработает без вопросов:
+
+// $(window).on("contextmenu", false); // запретили контекстное меню для правой кнопки мыши
+// $(window).on("keydown", null, "17", false); // клавиша ctrl - код 17 - запрещаем выделение через ctrl + a
+// $(window).on("keydown", null, "123", false); // клавиша F12 - код 123 - запрет копирования через консоль
+
+// submit - событие, которое срабатывает при отправке формы:
+// в index.html меняем(снова возвращаем) строку
+// <input type="button" value="Submit" />
+// на строку
+// <input type="submit" value="Submit" />
 
 
+// Если мы не хотим сабмитить форму, но просто провалидировать форму (если форма не прошла валидацию, прерываем событие - делаем preventDefault, форма не отправляется, иначе - оставляем как есть, событие не прервано) или же мы хотим засабмитить её AJAX-ом, (тогда надо "руками" собрать данные из формы и отправить их в AJAX) то необходимо отменить стандартное поведение submit:
+// $("form").on("submit", function (e){
+	// e.preventDefault();
+	// console.log("submit");
+// })
+// инпуты плохо стилизуются, поэтому, для AJAX и не только, применять именно form submit не принципиально, главное - собрать данные для отправки // возможно, неточно передана мысль
+
+// прервано на 01:09:30
 
 
 
