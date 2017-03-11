@@ -1,7 +1,6 @@
-(function () {
-    var TODO_List = app.getModule("TODOList");
-    $("h1").after(TODO_List.createTODOList([
-        {
+{
+  "users": [
+    {
             name: "asadsad asdas ",
             email: "asdasd@asdaf.ds",
             assigned: false,
@@ -31,13 +30,14 @@
             assigned: false,
             assignedTo: []
         }
-    ],[
-        {
+  ],
+  "tasks": [
+    {
             title: "asd 1",
             description: "asdasdas asdsadasd asd as ",
             id: "asda d1231",
             active: false,
-            createDate: new Date(2000, 1, 1),
+            createDate: 1654854545454,
             completed: false,
             assignedTo: []
         },
@@ -68,7 +68,5 @@
             completed: false,
             assignedTo: []
         }
-    ]));
-
-
-})();
+  ]
+}
