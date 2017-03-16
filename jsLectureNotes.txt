@@ -2776,13 +2776,15 @@ var logoImage = $(".logo");
 // **********************************
 
 
+/* LECTURE_20 - Node.js install */
+// **********************************
+https://nodejs.org/en/download/
+win 64-bit
+https://github.com/typicode/json-server
+npm install -g json-server
 
-
-
-
-
-
-
+(проверка версии ноды: node --version)
+лекция не пройдена, установка занимает всего пару минут
 
 
 *************************************
