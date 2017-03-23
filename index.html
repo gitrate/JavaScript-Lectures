@@ -8,11 +8,16 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.3/angular.min.js"></script>
 		<script src="js/main.js" defer></script>
 	</head>
-	<body>
+	<body ng-app="app"><!-- root scope -->
 		<!-- This is base template for testing -->
-		<h1 class="mainTitle">
+		<div  ng-controller="myCtrl as myCtrl">
+		<h1 class="mainTitle"">
 			<img class="logo" src="images/logo.png" alt=""/>
-			<span class="text">Base template</span>
+			<span class="text">{{myCtrl.serverData.myKey1}}</span>
 		</h1>
+		<h1>{{myCtrl.serverData.myKey2 | price}}</h1>
+		<button type="button" ng-click="myCtrl.askUser()">Asc user</button>
+		<p>{{myCtrl.userAction}}</p>
+		</div>
 	</body>
 </html>
